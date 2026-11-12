@@ -1,25 +1,22 @@
-name: Build Tugas 4
+
+name: C++ Compile
 
 on:
   push:
-    branches:
-      - main
-  workflow_dispatch:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
 
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout Repository
         uses: actions/checkout@v4
 
       - name: Compile C++
-        shell: bash
-        run: g++ tugas_4.cpp -o tugas_4.exe -static
+        run: g++ -std=c++17 tugas_4.cpp -o tugas_4
 
-      - name: Upload EXE
-        uses: actions/upload-artifact@v4
-        with:
-          name: tugas_4-exe
-          path: tugas_4.exe
+      - name: Run Program
+        run: echo 8 | ./tugas_4
