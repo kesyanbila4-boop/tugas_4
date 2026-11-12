@@ -16,7 +16,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Compile C++
-        run: g++ -std=c++17 tugas_4.cpp -o tugas_4
+        run: g++ -std=c++17 .github/workflows/tugas_4 -o tugas_4
 
       - name: Run Program
         run: echo 8 | ./tugas_4
